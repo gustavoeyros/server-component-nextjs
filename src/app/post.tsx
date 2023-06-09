@@ -1,6 +1,12 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import LikeButton from "./like-button";
 
 export default function Post({ data }: IPost) {
+  /*   const router = useRouter();
+  router.refresh(); */
+
   let { title, body, id } = data;
 
   return (

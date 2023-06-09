@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Post from "./post";
 
 const getData = async () => {
@@ -9,9 +10,11 @@ export default async function Posts() {
   let posts = await getData();
   return (
     <div>
-      {posts.map((item: IPost) => (
-        <Post key={item.id} data={item} />
-      ))}
+      <Suspense fallback={<p>Carregando pelo fallback</p>}>
+        {posts.map((item: IPost) => (
+          <Post key={item.id} data={item} />
+        ))}
+      </Suspense>
     </div>
   );
 }
